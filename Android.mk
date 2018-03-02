@@ -16,7 +16,6 @@ LOCAL_SHARED_LIBRARIES := \
     android.hardware.power-V4-ndk
 
 LOCAL_HEADER_LIBRARIES := \
-    libutils_headers \
     libhardware_headers
 
 LOCAL_SRC_FILES := \
