@@ -1,7 +1,7 @@
 /*
-* Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
-* SPDX-License-Identifier: BSD-3-Clause-Clear
-*/
+ * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause-Clear
+ */
 
 #include "PowerHintSession.h"
 #include "utils.h"
@@ -16,6 +16,7 @@
 
 #include <android-base/logging.h>
 #define LOG_TAG "QTI PowerHAL"
+
 
 std::unordered_map<PowerHintSessionImpl*, int32_t> mPowerHintSessions;
 std::mutex mSessionLock;
@@ -97,7 +98,7 @@ std::shared_ptr<aidl::android::hardware::power::IPowerHintSession> setPowerHintS
     return mPowerSession;
 }
 
-int64_t getSessionPreferredRate(){
+int64_t getSessionPreferredRate() {
     return 16666666L;
 }
 

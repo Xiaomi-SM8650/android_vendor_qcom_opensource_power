@@ -1,17 +1,18 @@
 /*
-* Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
-* SPDX-License-Identifier: BSD-3-Clause-Clear
-*/
+ * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause-Clear
+ */
 
 #ifndef __POWERHINTSESSION__
 #define __POWERHINTSESSION__
 
+
 #include <unordered_map>
 #include <set>
 #include <mutex>
-#include <aidl/android/hardware/power/WorkDuration.h>
 #include <aidl/android/hardware/power/SessionHint.h>
 #include <aidl/android/hardware/power/BnPowerHintSession.h>
+#include <aidl/android/hardware/power/WorkDuration.h>
 
 enum LOAD_TYPE {
     LOAD_UP,
@@ -23,8 +24,9 @@ enum LOAD_TYPE {
 std::shared_ptr<aidl::android::hardware::power::IPowerHintSession> setPowerHintSession(int32_t tgid, int32_t uid, const std::vector<int32_t>& threadIds);
 int64_t getSessionPreferredRate();
 
-class PowerHintSessionImpl : public aidl::android::hardware::power::BnPowerHintSession{
-public:
+
+class PowerHintSessionImpl : public aidl::android::hardware::power::BnPowerHintSession {
+  public:
     explicit PowerHintSessionImpl(int32_t tgid, int32_t uid, const std::vector<int32_t>& threadIds);
     ~PowerHintSessionImpl();
     ndk::ScopedAStatus updateTargetWorkDuration(int64_t targetDurationNanos) override;
